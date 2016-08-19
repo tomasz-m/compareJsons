@@ -1,0 +1,166 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Compare JSONs structures</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+
+                    <a class="navbar-brand" href="#">compare<b>jsons</b></a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+
+                </div><!--/.navbar-collapse -->
+            </div>
+        </nav>
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container">
+                <h3>Compare JSONs</h3>
+                <p>Check if structure of two JSON strings is same. The content is ignored, just fields and its types matter.</p>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <h4>For example comparing this...</h4>
+                        <pre><code>{
+  "Person": [
+    {
+      "Name": "John",
+      "Age": 3
+    },
+    {
+      "Name": "Fred",
+      "Age": 45
+    }
+  ]
+}</code></pre>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>...to this...</h4>
+                        <pre><code>{
+  "Person": [
+    {
+      "Age": "32",
+      "Name": "Arnold"
+    }
+  ]
+}</code></pre>
+                    </div>
+                    <div class="col-md-4">
+                        <h4>...will show you</h4>
+                        <br>
+                        DIFFERENT FORMAT: <br>
+                        <b>Person > > Age</b><i> (number, not string)</i>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Example row of columns -->
+
+            <div class ="row">
+                <div class="col-md-6">
+                    <h2>Paste first JSON here: </h2>
+                    <p><textarea id="inputArea_1" class="form-control" rows="29"  required></textarea></p>
+                </div>
+
+                <div class="col-md-6">
+                    <h2>and second one here: </h2>
+                    <p><textarea id="inputArea_2" class="form-control" rows="29"  required></textarea></p>
+                </div>
+            </div>
+
+
+            <div class="span12 centered-text">
+                <p style="margin: 20px">
+                    <a class="btn btn-danger" role="button" onclick="generate()">Compare</a>
+                </p>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">Result</div>
+                <div class="panel-body">
+
+                    <div id="result_block_ok" class="alert alert-success centered-text" role="alert">
+                        <p><big>JSONs structures are identical!</big></p>
+                    </div>
+                    <div id="result_block_diff">
+                        <div id="result_block_ok" class="alert alert-warning centered-text" role="alert">
+                            <p>There are few differences:</p>
+                        </div>
+                        <div class ="row">
+                            <div class="col-md-6">
+                                <p>only first JSON contains: </p>
+                                <p id="result_1"></p>
+                                <ul id="list_1"></ul>
+                            </div>
+
+                            <div class="col-md-6">
+                                <p>only second JSON contains: </p>
+                                <p id="result_2"></p>
+                                <ul id="list_2"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+
+
+            <div id="focusInfo"></div>
+
+            <footer>
+                <p>&copy; Tomasz Miniach</p>
+            </footer>
+        </div> <!-- /container -->        
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+
+        <script src="js/jsonTools.js"></script>
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <script>
+                        (function (b, o, i, l, e, r) {
+                            b.GoogleAnalyticsObject = l;
+                            b[l] || (b[l] =
+                                    function () {
+                                        (b[l].q = b[l].q || []).push(arguments)
+                                    });
+                            b[l].l = +new Date;
+                            e = o.createElement(i);
+                            r = o.getElementsByTagName(i)[0];
+                            e.src = '//www.google-analytics.com/analytics.js';
+                            r.parentNode.insertBefore(e, r)
+                        }(window, document, 'script', 'ga'));
+                        ga('create', 'UA-39440798-8', 'auto');
+                        ga('send', 'pageview');
+        </script>
+
+    </body>
+</html>

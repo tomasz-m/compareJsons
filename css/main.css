@@ -1,0 +1,26 @@
+body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+.centered-text {
+    text-align:center;
+}
+.navbar-default{
+    //color:white;
+    background:#2196F3
+}
+.navbar-default .navbar-brand{
+    color:white;
+}
+
+
+
+
+
+
+
+
+
+
+
+
